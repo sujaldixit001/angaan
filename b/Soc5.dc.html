@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Social · The website</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap">
+<link rel="stylesheet" href="h-a3a968e0.css">
+</helmet>
+<div class="a-root" style="{{rootStyle}}">
+
+<div style="position: absolute; right: -200px; top: -180px; width: 760px; height: 760px; border-radius: 50%; background: radial-gradient(circle at 45% 55%, rgba(122,155,122,.20), rgba(122,155,122,0) 70%);"></div>
+
+<div style="position: absolute; left: 80px; right: 80px; top: 80px;">
+<div style="display: flex; align-items: center; gap: 14px;"><span style="width: 52px; height: 52px; border-radius: 16px; background: var(--primary); color: var(--onPrimary); display: grid; place-items: center;"><svg focusable="false" class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 30px; height: 30px;"><path d="M12 22c-.55 0-1-.45-1-1v-5.07C7.06 15.43 4 12.08 4 8V6.5c0-.28.22-.5.5-.5H6c2.62 0 4.93 1.43 6.14 3.55C13.3 6.84 15.95 5 19 5h.5c.28 0 .5.22.5.5V7c0 4.08-3.06 7.43-7 7.93V21c0 .55-.45 1-1 1"/></svg></span><span class="serif" style="font-size: 40px; line-height: 48px;">Angaan</span></div>
+
+<h1 class="serif" style="margin: 48px 0 0; font-size: 82px; line-height: 88px; font-weight: 400; letter-spacing: -1.4px;">The same garden,<br>on the big screen.</h1>
+<p style="margin: 20px 0 0; max-width: 720px; font-size: 24px; line-height: 36px; color: var(--ink2);">Plan on your laptop over lunch, check in from your phone on the train. One garden, wherever you open it.</p>
+</div>
+
+<div style="position: absolute; left: 80px; top: 611px; width: 920px; border-radius: 20px; overflow: hidden; background: var(--surface); box-shadow: 0 40px 90px rgba(28,27,25,.22);">
+<div style="height: 46px; display: flex; align-items: center; gap: 8px; padding: 0 18px; background: var(--surface2); border-bottom: 1px solid var(--line);">
+<span style="width: 11px; height: 11px; border-radius: 50%; background: #E2C0B5;"></span><span style="width: 11px; height: 11px; border-radius: 50%; background: #E7D6AE;"></span><span style="width: 11px; height: 11px; border-radius: 50%; background: #BFD3C2;"></span>
+<span style="margin-left: 14px; padding: 4px 14px; border-radius: 999px; background: var(--surface); font-size: 14px; line-height: 20px; color: var(--ink3);">angaan.app</span>
+</div>
+<div style="width: 920px; height: 613px; overflow: hidden;">
+<div style="width: 1440px; height: 960px; transform: scale(.6389); transform-origin: 0 0;"><dc-import name="Workspace" time="day" hint-size="1440px,960px"></dc-import></div>
+</div>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1080,"height":1350}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const THEMES = {"day": "--bg: #FAFAF7; --surface: #FFFFFF; --surface2: #F4F3EF; --surface3: #ECEAE4; --line: #ECEAE4; --line2: #DEDAD2; --ink: #1C1B19; --ink2: #4F4C46; --ink3: #6B675F; --primary: #1F4D36; --primaryHover: #183F2C; --primaryPressed: #123222; --onPrimary: #FFFFFF; --primarySoft: #E5EFE8; --primarySoftHover: #D8E8DD; --primaryText: #1F4D36; --blue: #2B5797; --blueSoft: #E8EFF9; --blueText: #1F4378; --warm: #B5472A; --warmSoft: #FBEAE3; --warmText: #8C3417; --gold: #9A6A12; --goldSoft: #FBF1DC; --danger: #B3261E; --dangerSoft: #FCE8E6; --focus: #2B5797; --disabledBg: #ECEAE4; --disabledInk: #8E8A82; --tag: rgba(255,255,255,.92); --nav: rgba(255,255,255,.94); --scrim: rgba(28,27,25,.40); --shadow: 0 1px 2px rgba(28,27,25,.04), 0 4px 16px rgba(28,27,25,.05); --shadowHi: 0 8px 32px rgba(28,27,25,.10); --treeFilter: none; --photoRing: #FFFFFF", "morning": "--bg: #F6F9F5; --surface: #FFFFFF; --surface2: #EFF4EE; --surface3: #E4ECE3; --line: #E4EBE3; --line2: #D5DFD4; --ink: #1B1D1A; --ink2: #4B5049; --ink3: #646B62; --primary: #1F4D36; --primaryHover: #183F2C; --primaryPressed: #123222; --onPrimary: #FFFFFF; --primarySoft: #E2EEE5; --primarySoftHover: #D4E6D9; --primaryText: #1F4D36; --blue: #2B5797; --blueSoft: #E6EEF8; --blueText: #1F4378; --warm: #B5472A; --warmSoft: #FCEBE1; --warmText: #8C3417; --gold: #9A6A12; --goldSoft: #FBF1DC; --danger: #B3261E; --dangerSoft: #FCE8E6; --focus: #2B5797; --disabledBg: #E4EBE3; --disabledInk: #878E85; --tag: rgba(255,255,255,.92); --nav: rgba(255,255,255,.94); --scrim: rgba(27,29,26,.40); --shadow: 0 1px 2px rgba(27,29,26,.04), 0 4px 16px rgba(27,29,26,.05); --shadowHi: 0 8px 32px rgba(27,29,26,.10); --treeFilter: saturate(1.04); --photoRing: #FFFFFF", "evening": "--bg: #FBF5EF; --surface: #FFFDFB; --surface2: #F6EDE5; --surface3: #EFE2D7; --line: #F0E4D9; --line2: #E3D3C4; --ink: #241C17; --ink2: #57493F; --ink3: #71635A; --primary: #1F4D36; --primaryHover: #183F2C; --primaryPressed: #123222; --onPrimary: #FFFFFF; --primarySoft: #EAEDE2; --primarySoftHover: #DEE4D5; --primaryText: #1F4D36; --blue: #3D4F8F; --blueSoft: #ECEBF6; --blueText: #2E3C73; --warm: #B5472A; --warmSoft: #FAE3D7; --warmText: #8C3417; --gold: #9A6A12; --goldSoft: #FAEBD2; --danger: #B3261E; --dangerSoft: #FCE8E6; --focus: #3D4F8F; --disabledBg: #EFE2D7; --disabledInk: #94857A; --tag: rgba(255,253,251,.92); --nav: rgba(255,253,251,.94); --scrim: rgba(36,28,23,.40); --shadow: 0 1px 2px rgba(36,28,23,.05), 0 4px 16px rgba(36,28,23,.06); --shadowHi: 0 8px 32px rgba(36,28,23,.12); --treeFilter: sepia(.12) saturate(1.06); --photoRing: #FFFDFB", "night": "--bg: #0D1322; --surface: #151D30; --surface2: #1C2640; --surface3: #243052; --line: #232E4A; --line2: #33406A; --ink: #EEF1F8; --ink2: #BCC4D8; --ink3: #9099B3; --primary: #8FD6A8; --primaryHover: #A5E2BA; --primaryPressed: #7BC495; --onPrimary: #0D1322; --primarySoft: #1B3A2E; --primarySoftHover: #224736; --primaryText: #A3E2B9; --blue: #9DB8F5; --blueSoft: #1E2A4A; --blueText: #BFD0F8; --warm: #F2A98F; --warmSoft: #3A2624; --warmText: #F7C2AE; --gold: #E8C074; --goldSoft: #3A3020; --danger: #F28B82; --dangerSoft: #3D1F22; --focus: #9DB8F5; --disabledBg: #1C2640; --disabledInk: #6B7593; --tag: rgba(21,29,48,.86); --nav: rgba(13,19,34,.94); --scrim: rgba(0,0,0,.55); --shadow: 0 0 0 1px #232E4A; --shadowHi: 0 8px 32px rgba(0,0,0,.45); --treeFilter: brightness(.78) saturate(.86); --photoRing: #151D30"};
+    return { rootStyle: THEMES.day + '; width: 1080px; height: 1350px; position: relative; overflow: hidden; background: var(--bg);' };
+  }
+}
+</script>
+</body>
+</html>

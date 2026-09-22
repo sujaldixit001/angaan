@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 140" width="120" height="140">
+  <!-- ground shadow -->
+  <ellipse cx="56" cy="133.5" rx="50" ry="3.2" fill="#1d2a1f" opacity=".14"/>
+  <!-- lamp post -->
+  <rect x="106" y="44" width="2.6" height="89" rx="1.3" fill="#34414C"/>
+  <rect x="104" y="129" width="6.6" height="4" rx="1" fill="#34414C"/>
+  <path d="M101.5 44 h11.6 l-2.2 -9 h-7.2 z" fill="#34414C"/>
+  <path d="M104 35 h6.6 l-3.3 -3.4 z" fill="#34414C"/>
+  <rect x="103.4" y="36.2" width="7.8" height="6.4" rx="1" fill="#FFE3A3"/>
+  <circle cx="107.3" cy="39.4" r="9" fill="#FFE3A3" opacity=".22"/>
+  <!-- bench back legs + back rest -->
+  <rect x="12" y="70" width="3" height="63" rx="1.2" fill="#2E3A44"/>
+  <rect x="95" y="70" width="3" height="63" rx="1.2" fill="#2E3A44"/>
+  <rect x="8" y="72" width="94" height="5" rx="2.2" fill="#9A6541"/>
+  <rect x="8" y="80" width="94" height="5" rx="2.2" fill="#8A5838"/>
+  <!-- tote bag on the bench -->
+  <path d="M20 81 q5 -9 10 0" stroke="#B9862F" stroke-width="1.6" fill="none"/>
+  <path d="M17 82 h16 l1.5 14 h-19 z" fill="#D9A441"/>
+  <path d="M17 82 h16 l.4 3.5 h-16.8 z" fill="#C7902F"/>
+  <!-- seat -->
+  <rect x="6" y="95" width="98" height="5.5" rx="2.4" fill="#A56E47"/>
+  <rect x="6" y="99" width="98" height="2.2" rx="1" fill="#80512F"/>
+  <rect x="17" y="101" width="3" height="32" rx="1.2" fill="#34414C"/>
+  <rect x="90" y="101" width="3" height="32" rx="1.2" fill="#34414C"/>
+
+  <!-- back leg (crossed under) -->
+  <path d="M50 93 L73 93 Q76 94 75.6 98 L72.5 124 L66.5 124 L68.6 99 L50 99 Z" fill="#26324A"/>
+  <path d="M66 123 h7 q1 4.6 5.4 5.6 q3 .8 3 3.2 h-15.6 z" fill="#2B211C"/>
+  <!-- torso: long camel coat -->
+  <path d="M43 66 Q44 57.5 52.5 56.5 L59.5 56.5 Q67.5 57.6 68.4 65 L70.5 98 Q56 101.5 41 98 Z" fill="#C8945A"/>
+  <path d="M56 57 L55 98" stroke="#A97944" stroke-width="1.1"/>
+  <path d="M43 66 Q42 82 41 98 L47 98 Q46 82 47.5 66 Z" fill="#B7834B"/>
+  <!-- front leg -->
+  <path d="M52 91 L79 91 Q83 91.6 82.6 96.4 L80 125 L73.6 125 L75.2 98 L52 98 Z" fill="#2F3B55"/>
+  <path d="M73 124 h7.4 q.8 4.4 5.6 5.4 q3.2 .8 3.2 3.4 h-16.2 z" fill="#33271F"/>
+  <!-- coat hem over the lap -->
+  <path d="M41 97.5 Q56 101 70.6 97.5 L71 91 Q56 94 41.6 91 Z" fill="#C8945A"/>
+  <!-- far arm resting on the knee -->
+  <path d="M47.5 67 Q45 80 52 87 L66 90" stroke="#B7834B" stroke-width="6.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="68" cy="90" r="3.1" fill="#B97A56"/>
+  <!-- neck -->
+  <path d="M55 49 h6 v9 h-6 z" fill="#A5683F"/>
+  <!-- scarf -->
+  <path d="M51 55.5 Q58 60.5 66 55.5 L66.4 60 Q58 65.6 50.6 60 Z" fill="#B5473A"/>
+  <path d="M60.5 60 L63.6 78 L58.6 78.6 L57 61 Z" fill="#A23C31"/>
+  <path d="M58.6 78.6 l5 -.6 l.4 2.2 l-5 .6 z" fill="#8E332A"/>
+  <!-- hair behind -->
+  <path d="M49.6 43 Q49 34 57 33.4 Q64.4 33.4 65.6 40.6 L63 44 Q59 42 55.4 45 L55.8 60 Q51 59.4 48.6 56.4 Q50.6 50 49.6 43 Z" fill="#2A1C17"/>
+  <!-- head (three-quarter view, facing right) -->
+  <path d="M53.6 43.6 Q53.6 36.6 59.6 36.4 Q65.8 36.4 66 42.2 L67.6 45.6 Q68 46.6 66.8 46.8 L66.4 49 Q66 52.4 61.6 52.6 Q56.2 52.6 54.6 48.8 Z" fill="#B97A56"/>
+  <path d="M53.8 43.6 Q54 38.6 58 37.2 Q61 38.8 65.6 38.6 Q64.6 34.8 59 34.6 Q52.4 35 52.8 43 Z" fill="#2A1C17"/>
+  <circle cx="56.6" cy="45.4" r="1.9" fill="#A5683F"/>
+  <path d="M61.4 43.8 q1.2 -1 2.4 0" stroke="#3B2418" stroke-width=".9" fill="none" stroke-linecap="round"/>
+  <path d="M62.6 49.4 q1.4 .8 2.6 -.2" stroke="#8A4A35" stroke-width=".8" fill="none" stroke-linecap="round"/>
+  <!-- near arm up, phone to ear -->
+  <path d="M64 62 Q70 66 67.6 56 L59.6 49.6" stroke="#C8945A" stroke-width="6.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="54.6" y="41.2" width="4.2" height="9.2" rx="1.4" fill="#1E232B" transform="rotate(-18 56.7 45.8)"/>
+  <circle cx="59.4" cy="49" r="2.8" fill="#B97A56"/>
+</svg>

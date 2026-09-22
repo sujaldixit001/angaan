@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>How a tree grows</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap">
+<link rel="stylesheet" href="h-a3a968e0.css">
+</helmet>
+<div class="a-root" style="{{rootStyle}}">
+<header style="display: flex; justify-content: space-between; align-items: flex-end; gap: 40px;">
+<div style="display: flex; flex-direction: column; gap: 8px;"><span style="font-size: 12px; line-height: 16px; font-weight: 600; color: var(--primaryText);">Relationship trees</span><h1 class="serif" style="margin: 0; font-size: 64px; line-height: 72px;">Seven trees, each its own</h1></div>
+<p style="margin: 0; max-width: 560px; font-size: 16px; line-height: 24px; color: var(--ink2);">Each person gets the fruit tree you choose for them. Every species is drawn from how it really grows: its shape, bark, leaves, flowers and fruit. One gift sent through Angaan is one level the day it’s delivered, whatever it cost. Memories, calls and visits teach Angaan, but never grow the tree.</p>
+</header>
+
+<section aria-label="Species" style="display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 16px;">
+<sc-for list="{{species}}" as="s" hint-placeholder-count="7">
+<article class="card" style="overflow: hidden; display: flex; flex-direction: column;">
+<div class="sc-day" style="height: 216px; display: flex; align-items: flex-end; justify-content: center;"><dc-import name="Tree" species="{{s.id}}" level="{{ 28 }}" size="{{ 176 }}" time="day" hint-size="176px,194px"></dc-import></div>
+<div style="padding: 16px; display: flex; flex-direction: column; gap: 8px;">
+<h2 class="serif" style="margin: 0; font-size: 32px; line-height: 40px;">{{s.name}}</h2>
+<p style="margin: 0; font-size: 12px; line-height: 16px; color: var(--ink2);"><strong style="color: var(--ink);">Form.</strong> {{s.form}}</p>
+<p style="margin: 0; font-size: 12px; line-height: 16px; color: var(--ink2);"><strong style="color: var(--ink);">Leaves.</strong> {{s.leaves}}</p>
+<p style="margin: 0; font-size: 12px; line-height: 16px; color: var(--ink2);"><strong style="color: var(--ink);">Flowers.</strong> {{s.flowers}}</p>
+</div>
+</article>
+</sc-for>
+</section>
+
+<section aria-label="Stages" class="card" style="padding: 24px; display: flex; flex-direction: column; gap: 24px;">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 24px;">
+<h2 style="margin: 0; font-size: 24px; line-height: 32px; font-weight: 600;">How it grows, one gift at a time</h2>
+<div role="group" aria-label="Species" style="display: flex; gap: 8px; flex-wrap: wrap;"><sc-for list="{{picks}}" as="p" hint-placeholder-count="7"><button class="chip" aria-pressed="{{p.pressed}}" onClick="{{p.pick}}"><svg focusable="false" class="ic ic-16 chk" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17 5.53 12.7a.996.996 0 0 0-1.41 0c-.39.39-.39 1.02 0 1.41l4.18 4.18c.39.39 1.02.39 1.41 0L20.29 7.71c.39-.39.39-1.02 0-1.41a.996.996 0 0 0-1.41 0z"/></svg>{{p.label}}</button></sc-for></div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 12px;">
+<sc-for list="{{stages}}" as="st" hint-placeholder-count="7">
+<div style="display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center;">
+<div class="sc-day" style="width: 100%; height: 184px; border-radius: 20px; display: flex; align-items: flex-end; justify-content: center; overflow: hidden;"><dc-import name="Tree" species="{{sel}}" level="{{st.level}}" size="{{ 152 }}" time="day" hint-size="152px,167px"></dc-import></div>
+<span style="font-size: 12px; line-height: 16px; font-weight: 600; color: var(--primaryText);">{{st.range}}</span>
+<span style="font-size: 16px; line-height: 24px; font-weight: 600;">{{st.name}}</span>
+<span style="font-size: 12px; line-height: 16px; color: var(--ink2); min-height: 32px;">{{st.detail}}</span><span style="font-size: 12px; line-height: 16px; color: var(--ink3);">{{st.rlabel}}</span>
+<span class="{{st.cls}}">{{st.reward}}</span>
+</div>
+</sc-for>
+</div>
+</section>
+
+<div style="display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 24px;">
+<section aria-label="Try it" class="card" style="padding: 24px; display: grid; grid-template-columns: 360px minmax(0, 1fr); gap: 24px; align-items: center;">
+<div class="{{tryScene}}" style="height: 400px; border-radius: 20px; display: flex; align-items: flex-end; justify-content: center; overflow: hidden;"><dc-import name="Tree" species="{{sel}}" level="{{level}}" size="{{ 312 }}" time="{{tryTime}}" hint-size="312px,343px"></dc-import></div>
+<div style="display: flex; flex-direction: column; gap: 16px;">
+<span class="label">Try it</span>
+<p role="status" class="serif" style="margin: 0; font-size: 40px; line-height: 48px;">{{title}}</p>
+<p style="margin: 0; font-size: 16px; line-height: 24px; color: var(--ink2);">{{sub}}</p>
+<div style="display: flex; flex-direction: column; gap: 8px;"><label for="lvl" class="label">Level {{level}} of 30</label><input id="lvl" type="range" min="0" max="30" step="1" value="{{level}}" onChange="{{onRange}}" style="width: 100%; accent-color: var(--primary);"></div>
+<div style="display: flex; gap: 8px; flex-wrap: wrap;"><button class="btn btn-primary" disabled="{{atMax}}" onClick="{{add}}"><svg focusable="false" class="ic ic-20" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11c-1.1 0-2 .9-2 2v7c0 1.1.9 2 2 2s2-.9 2-2v-7c0-1.1-.9-2-2-2m7-5.7C10 3.45 11.45 2 13.3 2c1.04 0 2.05.49 2.7 1.25.65-.76 1.66-1.25 2.7-1.25C20.55 2 22 3.45 22 5.3c0 2.1-2.5 4.51-5.33 7.09-.38.35-.97.35-1.35 0C12.5 9.81 10 7.4 10 5.3M19.99 17h-6.83a.96.96 0 0 1-.33-.06l-1.47-.51c-.26-.09-.39-.37-.3-.63s.38-.4.64-.3l1.12.43c.11.04.24.07.36.07h2.63c.65 0 1.18-.53 1.18-1.18 0-.49-.31-.93-.77-1.11L9.3 11.13c-.22-.09-.46-.13-.7-.13H7v9.02l6.37 1.81c.41.12.85.1 1.25-.05L22 19c0-1.11-.9-2-2.01-2"/></svg>Give a gift</button><button class="btn btn-secondary" disabled="{{atMin}}" onClick="{{undo}}"><svg focusable="false" class="ic ic-20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.5 8c-2.65 0-5.05.99-6.9 2.6L3.71 8.71C3.08 8.08 2 8.52 2 9.41V15c0 .55.45 1 1 1h5.59c.89 0 1.34-1.08.71-1.71l-1.91-1.91c1.39-1.16 3.16-1.88 5.12-1.88 3.16 0 5.89 1.84 7.19 4.5.27.56.91.84 1.5.64.71-.23 1.07-1.04.75-1.72C20.23 10.42 16.65 8 12.5 8"/></svg>Undo</button><button class="btn btn-text" onClick="{{reset}}">Reset</button></div>
+<div class="seg" role="group" aria-label="Time of day"><sc-for list="{{times}}" as="t" hint-placeholder-count="4"><button aria-pressed="{{t.pressed}}" onClick="{{t.pick}}">{{t.label}}</button></sc-for></div>
+</div>
+</section>
+<div style="display: flex; flex-direction: column; gap: 24px;">
+<section aria-label="Collectible" class="card" style="padding: 24px; display: flex; gap: 24px; align-items: center;">
+<dc-import name="Badge" title="Maa Ki Ladli" species="mango" rel="Mother" size="{{ 168 }}" hint-size="168px,168px"></dc-import>
+<div style="display: flex; flex-direction: column; gap: 8px;"><span style="font-size: 12px; line-height: 16px; font-weight: 600; color: var(--gold); display: flex; gap: 4px; align-items: center;"><svg focusable="false" class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 10.43V3c0-.55-.45-1-1-1H8c-.55 0-1 .45-1 1v7.43c0 .35.18.68.49.86l4.18 2.51-.99 2.34-2.22.19c-.46.04-.64.59-.3.88l1.69 1.46-.51 2.18c-.1.43.37.77.75.54L12 20.23l1.91 1.15c.38.23.85-.11.75-.54l-.51-2.18 1.69-1.46c.33-.29.16-.84-.29-.88l-2.22-.19-.99-2.34 4.18-2.51c.3-.17.48-.49.48-.85m-4 1.8-1 .6-1-.6V3h2z"/></svg>Level 30 keepsake</span><span style="font-size: 24px; line-height: 32px; font-weight: 600;">An embroidered patch of their tree, posted to you</span><span style="font-size: 16px; line-height: 24px; color: var(--ink2);">Named for the two of you. Then a new tree can be planted beside the first, and both live in their garden.</span></div>
+</section>
+<section aria-label="Three separate systems" style="flex-grow: 1; display: flex; flex-direction: column; gap: 12px;"><div style="padding: 16px 20px; border-radius: 20px; background: var(--primarySoft); display: flex; gap: 16px; align-items: center;"><svg focusable="false" class="ic ic-24" viewBox="0 0 24 24" aria-hidden="true" style="color: var(--primaryText); flex-shrink: 0;"><path d="M3 11c-1.1 0-2 .9-2 2v7c0 1.1.9 2 2 2s2-.9 2-2v-7c0-1.1-.9-2-2-2m7-5.7C10 3.45 11.45 2 13.3 2c1.04 0 2.05.49 2.7 1.25.65-.76 1.66-1.25 2.7-1.25C20.55 2 22 3.45 22 5.3c0 2.1-2.5 4.51-5.33 7.09-.38.35-.97.35-1.35 0C12.5 9.81 10 7.4 10 5.3M19.99 17h-6.83a.96.96 0 0 1-.33-.06l-1.47-.51c-.26-.09-.39-.37-.3-.63s.38-.4.64-.3l1.12.43c.11.04.24.07.36.07h2.63c.65 0 1.18-.53 1.18-1.18 0-.49-.31-.93-.77-1.11L9.3 11.13c-.22-.09-.46-.13-.7-.13H7v9.02l6.37 1.81c.41.12.85.1 1.25-.05L22 19c0-1.11-.9-2-2.01-2"/></svg><div style="display: flex; flex-direction: column; gap: 4px; min-width: 0;"><span style="font-size: 12px; line-height: 16px; font-weight: 600; color: var(--primaryText);">Gift</span><span style="font-size: 16px; line-height: 24px; font-weight: 600;">Grows the tree.</span><span style="font-size: 12px; line-height: 16px; color: var(--ink2);">Sent through Angaan. It counts the day the courier confirms delivery.</span></div></div><div style="padding: 16px 20px; border-radius: 20px; background: var(--blueSoft); display: flex; gap: 16px; align-items: center;"><svg focusable="false" class="ic ic-24" viewBox="0 0 24 24" aria-hidden="true" style="color: var(--blueText); flex-shrink: 0;"><path d="M12 22c-.55 0-1-.45-1-1v-5.07C7.06 15.43 4 12.08 4 8V6.5c0-.28.22-.5.5-.5H6c2.62 0 4.93 1.43 6.14 3.55C13.3 6.84 15.95 5 19 5h.5c.28 0 .5.22.5.5V7c0 4.08-3.06 7.43-7 7.93V21c0 .55-.45 1-1 1"/></svg><div style="display: flex; flex-direction: column; gap: 4px; min-width: 0;"><span style="font-size: 12px; line-height: 16px; font-weight: 600; color: var(--blueText);">Memory</span><span style="font-size: 16px; line-height: 24px; font-weight: 600;">Improves what Angaan understands.</span><span style="font-size: 12px; line-height: 16px; color: var(--ink2);">Calls, visits, thoughts and details. Never a level, never a score.</span></div></div><div style="padding: 16px 20px; border-radius: 20px; background: var(--surface2); display: flex; gap: 16px; align-items: center;"><svg focusable="false" class="ic ic-24" viewBox="0 0 24 24" aria-hidden="true" style="color: var(--ink2); flex-shrink: 0;"><path d="M13.35 20.13c-.76.69-1.93.69-2.69-.01l-.11-.1C5.3 15.27 1.87 12.16 2 8.28c.06-1.7.93-3.33 2.34-4.29 2.64-1.8 5.9-.96 7.66 1.1 1.76-2.06 5.02-2.91 7.66-1.1 1.41.96 2.28 2.59 2.34 4.29.14 3.88-3.3 6.99-8.55 11.76z"/></svg><div style="display: flex; flex-direction: column; gap: 4px; min-width: 0;"><span style="font-size: 12px; line-height: 16px; font-weight: 600; color: var(--ink2);">Response</span><span style="font-size: 16px; line-height: 24px; font-weight: 600;">Improves future suggestions.</span><span style="font-size: 12px; line-height: 16px; color: var(--ink2);">How they reacted to a gift, asked once it is given.</span></div></div></section>
+</div>
+</div>
+
+<section aria-label="Keepsake patches" class="card" style="padding: 24px; display: flex; flex-direction: column; gap: 24px;">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px;"><div style="display: flex; flex-direction: column; gap: 4px;"><h2 style="margin: 0; font-size: 24px; line-height: 32px; font-weight: 600;">Keepsake patches</h2><span style="font-size: 16px; line-height: 24px; color: var(--ink2);">One per relationship, worded for a daughter or a son. The ring colour follows the relationship, the tree is theirs.</span></div><span class="pill p-gold">Unlocks at Level 30</span></div>
+<sc-for list="{{badgeRows}}" as="br" hint-placeholder-count="2">
+<div style="display: flex; flex-direction: column; gap: 12px;"><span class="label">{{br.label}}</span>
+<div style="display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: 12px;">
+<sc-for list="{{br.items}}" as="b" hint-placeholder-count="10">
+<div style="display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center;"><dc-import name="Badge" title="{{b.title}}" species="{{b.species}}" rel="{{b.rel}}" size="{{ 112 }}" hint-size="112px,112px"></dc-import><span style="font-size: 12px; line-height: 16px; color: var(--ink2);">{{b.who}}</span></div>
+</sc-for>
+</div></div>
+</sc-for>
+</section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2400}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { level: 3, sel: 'mango', time: 'day' }; }
+  renderVals() {
+    const THEMES = {"day": "--bg: #FAFAF7; --surface: #FFFFFF; --surface2: #F4F3EF; --surface3: #ECEAE4; --line: #ECEAE4; --line2: #DEDAD2; --ink: #1C1B19; --ink2: #4F4C46; --ink3: #6B675F; --primary: #1F4D36; --primaryHover: #183F2C; --primaryPressed: #123222; --onPrimary: #FFFFFF; --primarySoft: #E5EFE8; --primarySoftHover: #D8E8DD; --primaryText: #1F4D36; --blue: #2B5797; --blueSoft: #E8EFF9; --blueText: #1F4378; --warm: #B5472A; --warmSoft: #FBEAE3; --warmText: #8C3417; --gold: #9A6A12; --goldSoft: #FBF1DC; --danger: #B3261E; --dangerSoft: #FCE8E6; --focus: #2B5797; --disabledBg: #ECEAE4; --disabledInk: #8E8A82; --tag: rgba(255,255,255,.92); --nav: rgba(255,255,255,.94); --scrim: rgba(28,27,25,.40); --shadow: 0 1px 2px rgba(28,27,25,.04), 0 4px 16px rgba(28,27,25,.05); --shadowHi: 0 8px 32px rgba(28,27,25,.10); --treeFilter: none; --photoRing: #FFFFFF", "morning": "--bg: #F6F9F5; --surface: #FFFFFF; --surface2: #EFF4EE; --surface3: #E4ECE3; --line: #E4EBE3; --line2: #D5DFD4; --ink: #1B1D1A; --ink2: #4B5049; --ink3: #646B62; --primary: #1F4D36; --primaryHover: #183F2C; --primaryPressed: #123222; --onPrimary: #FFFFFF; --primarySoft: #E2EEE5; --primarySoftHover: #D4E6D9; --primaryText: #1F4D36; --blue: #2B5797; --blueSoft: #E6EEF8; --blueText: #1F4378; --warm: #B5472A; --warmSoft: #FCEBE1; --warmText: #8C3417; --gold: #9A6A12; --goldSoft: #FBF1DC; --danger: #B3261E; --dangerSoft: #FCE8E6; --focus: #2B5797; --disabledBg: #E4EBE3; --disabledInk: #878E85; --tag: rgba(255,255,255,.92); --nav: rgba(255,255,255,.94); --scrim: rgba(27,29,26,.40); --shadow: 0 1px 2px rgba(27,29,26,.04), 0 4px 16px rgba(27,29,26,.05); --shadowHi: 0 8px 32px rgba(27,29,26,.10); --treeFilter: saturate(1.04); --photoRing: #FFFFFF", "evening": "--bg: #FBF5EF; --surface: #FFFDFB; --surface2: #F6EDE5; --surface3: #EFE2D7; --line: #F0E4D9; --line2: #E3D3C4; --ink: #241C17; --ink2: #57493F; --ink3: #71635A; --primary: #1F4D36; --primaryHover: #183F2C; --primaryPressed: #123222; --onPrimary: #FFFFFF; --primarySoft: #EAEDE2; --primarySoftHover: #DEE4D5; --primaryText: #1F4D36; --blue: #3D4F8F; --blueSoft: #ECEBF6; --blueText: #2E3C73; --warm: #B5472A; --warmSoft: #FAE3D7; --warmText: #8C3417; --gold: #9A6A12; --goldSoft: #FAEBD2; --danger: #B3261E; --dangerSoft: #FCE8E6; --focus: #3D4F8F; --disabledBg: #EFE2D7; --disabledInk: #94857A; --tag: rgba(255,253,251,.92); --nav: rgba(255,253,251,.94); --scrim: rgba(36,28,23,.40); --shadow: 0 1px 2px rgba(36,28,23,.05), 0 4px 16px rgba(36,28,23,.06); --shadowHi: 0 8px 32px rgba(36,28,23,.12); --treeFilter: sepia(.12) saturate(1.06); --photoRing: #FFFDFB", "night": "--bg: #0D1322; --surface: #151D30; --surface2: #1C2640; --surface3: #243052; --line: #232E4A; --line2: #33406A; --ink: #EEF1F8; --ink2: #BCC4D8; --ink3: #9099B3; --primary: #8FD6A8; --primaryHover: #A5E2BA; --primaryPressed: #7BC495; --onPrimary: #0D1322; --primarySoft: #1B3A2E; --primarySoftHover: #224736; --primaryText: #A3E2B9; --blue: #9DB8F5; --blueSoft: #1E2A4A; --blueText: #BFD0F8; --warm: #F2A98F; --warmSoft: #3A2624; --warmText: #F7C2AE; --gold: #E8C074; --goldSoft: #3A3020; --danger: #F28B82; --dangerSoft: #3D1F22; --focus: #9DB8F5; --disabledBg: #1C2640; --disabledInk: #6B7593; --tag: rgba(21,29,48,.86); --nav: rgba(13,19,34,.94); --scrim: rgba(0,0,0,.55); --shadow: 0 0 0 1px #232E4A; --shadowHi: 0 8px 32px rgba(0,0,0,.45); --treeFilter: brightness(.78) saturate(.86); --photoRing: #151D30"};
+    const s = this.state;
+    const L = s.level;
+    const INFO = {
+      mango: ['Mango', 'Broad, dense dome on a thick trunk. Evergreen and heavy.', 'Long and narrow, dark and glossy. New flush comes in bronze-red.', 'Upright cream-pink panicles above the leaves.'],
+      guava: ['Guava', 'Small, open tree, often several stems from the base.', 'Oval, light yellow-green, with deep parallel veins.', 'White puffs of stamens. Bark peels copper and green.'],
+      litchi: ['Litchi', 'Low branching with a full, rounded crown.', 'Bright shiny leaflets. Young leaves are red.', 'Tiny yellow-green clusters. Fruit hangs in bunches.'],
+      pomegranate: ['Pomegranate', 'A light, multi-stemmed shrub with thin grey stems.', 'Small and narrow, giving an airy texture.', 'Red-orange trumpets with crinkled petals.'],
+      chikoo: ['Chikoo', 'Upright, tiered, pyramid-like evergreen.', 'Glossy dark leaves in rosettes at branch tips.', 'Small white bells. Brown fruit hides in the leaves.'],
+      jamun: ['Jamun', 'Tall, straight, pale grey trunk with a wide crown.', 'Deep blue-green and glossy. Pink tips when young.', 'Fluffy white clusters, then purple-black fruit.'],
+      lemon: ['Lemon', 'A compact round bush that sits low. Small thorns.', 'Mid-green, glossy, fragrant when crushed.', 'White stars with purple-tinged backs.']
+    };
+    const IDS = ['mango', 'guava', 'litchi', 'pomegranate', 'chikoo', 'jamun', 'lemon'];
+    const names = ['Seedling', 'Sapling', 'Young tree', 'Budding', 'Flowering', 'Bearing fruit'];
+    const R = { 5: 'Handwritten note', 10: 'Free gift wrap', 15: 'Pressed-flower card', 20: 'Free delivery', 25: 'Personalisation', 30: 'Keepsake patch' };
+    const detail = ['First leaves, in the species’ own shape', 'A stem finds its form', 'The crown fills in', 'First buds appear', 'Flowers, bees and a robin', 'Fruit sets and ripens', 'Every branch in fruit'];
+    const bn = (rel, g, name) => { const d = g !== 'son'; const B = { Mother: d ? 'Maa Ki Ladli' : 'Maa Ka Ladla', Father: d ? 'Papa Ki Pari' : 'Papa Ka Sher', Sister: d ? 'Behna Ki Saheli' : 'Behna Ka Rakshak', Brother: d ? 'Bhai Ki Jaan' : 'Bhai Ka Yaar', Partner: d ? 'Mera Hamsafar' : 'Meri Hamsafar', Grandmother: (/nani/i.test(name) ? 'Nani' : 'Dadi') + (d ? ' Ki Ladli' : ' Ka Ladla'), Grandfather: (/nana/i.test(name) ? 'Nana' : 'Dadu') + (d ? ' Ki Pari' : ' Ka Raja'), Friend: 'Dost Forever' }; return B[rel]; };
+    const next = L >= 30 ? 30 : (Math.floor(L / 5) + 1) * 5;
+    return {
+      rootStyle: THEMES.day + '; width: 1440px; height: 2400px; padding: 64px 72px; display: flex; flex-direction: column; gap: 40px; background: var(--bg);',
+      species: IDS.map((id) => ({ id, name: INFO[id][0], form: INFO[id][1], leaves: INFO[id][2], flowers: INFO[id][3] })),
+      picks: IDS.map((id) => ({ label: INFO[id][0], pressed: s.sel === id ? 'true' : 'false', pick: () => this.setState({ sel: id }) })),
+      sel: s.sel,
+      stages: [0, 5, 10, 15, 20, 25, 30].map((lv, i) => ({ level: lv === 30 ? 30 : lv + 3, range: lv === 30 ? 'Level 30' : 'Level ' + lv + '–' + (lv + 4), name: lv === 30 ? 'Full bloom' : names[i], detail: detail[i], rlabel: i === 0 ? 'Start' : 'Milestone reward', reward: i === 0 ? 'Plant it' : R[lv], cls: i === 0 ? 'pill p-neutral' : i === 6 ? 'pill p-gold' : 'pill p-green' })),
+      level: L, title: L >= 30 ? 'Full bloom' : names[Math.floor(L / 5)],
+      sub: L >= 30 ? 'Thirty gifts given. The keepsake unlocks and a new tree can be planted.' : (next - L === 1 ? '1 more gift to grow your tree into ' : (next - L) + ' more gifts to grow your tree into ') + (next >= 30 ? 'full bloom' : names[next / 5].toLowerCase()) + '. It changes a little with every gift, not only at each stage.',
+      badgeRows: [['For a daughter', 'daughter'], ['For a son', 'son']].map(([label, g]) => ({ label, items: [['Mother', 'Mum', 'mango'], ['Father', 'Papa', 'guava'], ['Sister', 'Sister', 'litchi'], ['Brother', 'Brother', 'pomegranate'], ['Partner', 'Partner', 'lemon'], ['Grandmother', 'Nani', 'chikoo'], ['Grandmother', 'Dadi', 'jamun'], ['Grandfather', 'Nana', 'mango'], ['Grandfather', 'Dadu', 'guava'], ['Friend', 'Friend', 'litchi']].map(([rel, who, sp]) => ({ rel, who, species: sp, title: bn(rel, g, who) })) })),
+      atMax: L >= 30, atMin: L <= 0,
+      add: () => this.setState({ level: Math.min(30, this.state.level + 1) }), undo: () => this.setState({ level: Math.max(0, this.state.level - 1) }), reset: () => this.setState({ level: 0 }),
+      onRange: (e) => this.setState({ level: Number(e.target.value) }),
+      tryTime: s.time, tryScene: 'sc-' + s.time,
+      times: ['morning', 'day', 'evening', 'night'].map((t) => ({ label: t.charAt(0).toUpperCase() + t.slice(1), pressed: s.time === t ? 'true' : 'false', pick: () => this.setState({ time: t }) }))
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Keepsake badge</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap">
+<link rel="stylesheet" href="h-ebaff274.css">
+</helmet>
+<div role="img" aria-label="{{label}}" style="{{rootStyle}}">
+<div style="{{discStyle}}">
+<div style="{{stitchStyle}}"></div>
+<div style="{{treeWrap}}"><dc-import name="Tree" species="{{species}}" level="{{ 30 }}" size="{{treeSize}}" sway="{{ false }}" time="day" hint-size="72px,79px"></dc-import></div>
+</div>
+<div style="{{ribbonStyle}}"><span style="{{textStyle}}">{{name}}</span></div>
+<sc-if value="{{locked}}" hint-placeholder-val="{{ false }}"><span style="{{lockStyle}}"><svg focusable="false" class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2m-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2M9 8V6c0-1.66 1.34-3 3-3s3 1.34 3 3v2z"/></svg></span></sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"title":{"editor":"text","default":"Maa Ki Ladli"},"species":{"editor":"enum","options":["mango","guava","litchi","pomegranate","chikoo","jamun","lemon"],"default":"mango"},"rel":{"editor":"enum","options":["Mother","Father","Sister","Brother","Partner","Friend","Grandmother","Grandfather","Other"],"default":"Mother"},"size":{"editor":"int","default":128,"min":48,"max":400},"locked":{"editor":"boolean","default":false},"$preview":{"width":144,"height":144}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const p = this.props;
+    const size = p.size || 128;
+    const rel = { 'Fiancé': 'Partner', 'Wife': 'Partner', 'Husband': 'Partner', 'Best friend': 'Friend' }[p.rel] || p.rel || 'Other';
+    const C = {
+      Mother: ['#F6E6D6', '#9C2F3A'], Father: ['#E2EAF2', '#1F4D6B'], Sister: ['#F8E3EC', '#A53D6E'], Brother: ['#E2EFE6', '#2F6B4F'],
+      Partner: ['#FBE4E1', '#B3262E'], Grandmother: ['#EEE4F4', '#6E4691'], Grandfather: ['#F0E6D8', '#80531F'], Friend: ['#FBEFD9', '#A86F16'], Other: ['#ECEAE4', '#4F4C46']
+    }[rel] || ['#ECEAE4', '#4F4C46'];
+    const u = (n) => Math.round(n * size / 128) + 'px';
+    const tree = Math.round(size * 0.62);
+    const locked = !!p.locked;
+    return {
+      label: (p.title || 'Keepsake') + ' keepsake badge' + (locked ? ', locked' : ''),
+      name: p.title || 'Keepsake', species: p.species || 'mango', treeSize: tree, locked,
+      rootStyle: 'position: relative; width: ' + (size + 16) + 'px; height: ' + (size + 16) + 'px; display: grid; place-items: center;' + (locked ? ' filter: grayscale(1); opacity: .55;' : ''),
+      discStyle: 'position: relative; width: ' + size + 'px; height: ' + size + 'px; border-radius: 50%; background: ' + C[0] + '; box-shadow: inset 0 0 0 ' + u(5) + ' ' + C[1] + ', 0 ' + u(4) + ' ' + u(12) + ' rgba(28,27,25,.14); overflow: hidden;',
+      stitchStyle: 'position: absolute; inset: ' + u(10) + '; border-radius: 50%; border: ' + u(2) + ' dashed ' + C[1] + '; opacity: .55;',
+      treeWrap: 'position: absolute; left: 50%; top: ' + u(14) + '; margin-left: -' + Math.round(tree / 2) + 'px; width: ' + tree + 'px;',
+      ribbonStyle: 'position: absolute; left: 0; right: 0; bottom: ' + u(18) + '; height: ' + u(28) + '; background: ' + C[1] + '; display: grid; place-items: center; clip-path: polygon(0 0, 100% 0, 94% 50%, 100% 100%, 0 100%, 6% 50%); box-shadow: 0 2px 4px rgba(0,0,0,.12);',
+      textStyle: "font-family: 'Instrument Serif', Georgia, serif; color: #FFFFFF; white-space: nowrap; font-size: " + u(size < 96 ? 15 : 16) + '; line-height: ' + u(20) + '; letter-spacing: .01em;',
+      lockStyle: 'position: absolute; right: ' + u(4) + '; top: ' + u(4) + '; width: ' + u(28) + '; height: ' + u(28) + '; border-radius: 50%; background: #FFFFFF; color: #4F4C46; display: grid; place-items: center;'
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Social · The garden</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap">
+<link rel="stylesheet" href="h-a3a968e0.css">
+</helmet>
+<div class="a-root" style="{{rootStyle}}">
+
+<div class="sc-day" style="position: relative; height: 806px; flex-shrink: 0; overflow: hidden;">
+<div style="position: absolute; left: 40px; right: 40px; bottom: 56px; display: flex; align-items: flex-end; justify-content: space-between; gap: 4px;">
+<sc-for list="{{garden}}" as="g" hint-placeholder-count="5">
+<div style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
+<dc-import name="Tree" species="{{g.species}}" level="{{g.level}}" size="{{ 194 }}" flip="{{g.flip}}" time="day" hint-size="194px,213px"></dc-import>
+<span class="tag" style="min-height: 40px; padding: 0 14px 0 5px; gap: 8px; font-size: 16px; line-height: 22px;"><img class="avatar" src="{{g.photo}}" alt="" style="width: 30px; height: 30px;">{{g.name}} · {{g.level}}</span>
+</div>
+</sc-for>
+</div>
+<span class="tag" style="position: absolute; left: 40px; top: 40px; min-height: 44px; padding: 0 18px; gap: 8px; font-size: 17px;"><svg focusable="false" class="ic ic-20" viewBox="0 0 24 24" aria-hidden="true"><path d="M16.96 12h.08c.81 0 1.28-.91.82-1.57l-5.08-7.25c-.4-.57-1.24-.57-1.64 0L6.1 10.43c-.46.66.02 1.57.83 1.57h.04l-2.9 4.46c-.44.66.04 1.54.84 1.54h5.08v2.02c0 1.09.89 1.98 1.98 1.98s1.98-.89 1.98-1.98V18h5.15c.8 0 1.28-.89.83-1.55z"/></svg>Ananya’s garden · five trees</span>
+</div>
+
+<div style="flex-grow: 1; padding: 48px 80px 64px; display: flex; flex-direction: column;">
+<h2 class="serif" style="margin: 0; font-size: 78px; line-height: 82px; font-weight: 400; letter-spacing: -1.2px;">Five people. Five trees. Five speeds.</h2>
+<p style="margin: 18px 0 0; max-width: 840px; font-size: 24px; line-height: 36px; color: var(--ink2);">Mango for your mother, guava for your father, litchi for the brother who just left home. Each one grows only when a gift reaches them.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 8px; margin: 26px 0 0;"><span class="pill p-green" style="min-height: 38px; padding: 0 16px; font-size: 16px;">Mango</span><span class="pill p-green" style="min-height: 38px; padding: 0 16px; font-size: 16px;">Guava</span><span class="pill p-green" style="min-height: 38px; padding: 0 16px; font-size: 16px;">Litchi</span><span class="pill p-green" style="min-height: 38px; padding: 0 16px; font-size: 16px;">Chikoo</span><span class="pill p-green" style="min-height: 38px; padding: 0 16px; font-size: 16px;">Pomegranate</span><span class="pill p-green" style="min-height: 38px; padding: 0 16px; font-size: 16px;">Jamun</span><span class="pill p-green" style="min-height: 38px; padding: 0 16px; font-size: 16px;">Lemon</span></div>
+<div style="flex-grow: 1;"></div>
+<div style="display: flex; align-items: center; gap: 14px;"><span style="width: 52px; height: 52px; border-radius: 16px; background: var(--primary); color: var(--onPrimary); display: grid; place-items: center;"><svg focusable="false" class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 30px; height: 30px;"><path d="M12 22c-.55 0-1-.45-1-1v-5.07C7.06 15.43 4 12.08 4 8V6.5c0-.28.22-.5.5-.5H6c2.62 0 4.93 1.43 6.14 3.55C13.3 6.84 15.95 5 19 5h.5c.28 0 .5.22.5.5V7c0 4.08-3.06 7.43-7 7.93V21c0 .55-.45 1-1 1"/></svg></span><span class="serif" style="font-size: 40px; line-height: 48px;">Angaan</span></div>
+
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1080,"height":1350}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const THEMES = {"day": "--bg: #FAFAF7; --surface: #FFFFFF; --surface2: #F4F3EF; --surface3: #ECEAE4; --line: #ECEAE4; --line2: #DEDAD2; --ink: #1C1B19; --ink2: #4F4C46; --ink3: #6B675F; --primary: #1F4D36; --primaryHover: #183F2C; --primaryPressed: #123222; --onPrimary: #FFFFFF; --primarySoft: #E5EFE8; --primarySoftHover: #D8E8DD; --primaryText: #1F4D36; --blue: #2B5797; --blueSoft: #E8EFF9; --blueText: #1F4378; --warm: #B5472A; --warmSoft: #FBEAE3; --warmText: #8C3417; --gold: #9A6A12; --goldSoft: #FBF1DC; --danger: #B3261E; --dangerSoft: #FCE8E6; --focus: #2B5797; --disabledBg: #ECEAE4; --disabledInk: #8E8A82; --tag: rgba(255,255,255,.92); --nav: rgba(255,255,255,.94); --scrim: rgba(28,27,25,.40); --shadow: 0 1px 2px rgba(28,27,25,.04), 0 4px 16px rgba(28,27,25,.05); --shadowHi: 0 8px 32px rgba(28,27,25,.10); --treeFilter: none; --photoRing: #FFFFFF", "morning": "--bg: #F6F9F5; --surface: #FFFFFF; --surface2: #EFF4EE; --surface3: #E4ECE3; --line: #E4EBE3; --line2: #D5DFD4; --ink: #1B1D1A; --ink2: #4B5049; --ink3: #646B62; --primary: #1F4D36; --primaryHover: #183F2C; --primaryPressed: #123222; --onPrimary: #FFFFFF; --primarySoft: #E2EEE5; --primarySoftHover: #D4E6D9; --primaryText: #1F4D36; --blue: #2B5797; --blueSoft: #E6EEF8; --blueText: #1F4378; --warm: #B5472A; --warmSoft: #FCEBE1; --warmText: #8C3417; --gold: #9A6A12; --goldSoft: #FBF1DC; --danger: #B3261E; --dangerSoft: #FCE8E6; --focus: #2B5797; --disabledBg: #E4EBE3; --disabledInk: #878E85; --tag: rgba(255,255,255,.92); --nav: rgba(255,255,255,.94); --scrim: rgba(27,29,26,.40); --shadow: 0 1px 2px rgba(27,29,26,.04), 0 4px 16px rgba(27,29,26,.05); --shadowHi: 0 8px 32px rgba(27,29,26,.10); --treeFilter: saturate(1.04); --photoRing: #FFFFFF", "evening": "--bg: #FBF5EF; --surface: #FFFDFB; --surface2: #F6EDE5; --surface3: #EFE2D7; --line: #F0E4D9; --line2: #E3D3C4; --ink: #241C17; --ink2: #57493F; --ink3: #71635A; --primary: #1F4D36; --primaryHover: #183F2C; --primaryPressed: #123222; --onPrimary: #FFFFFF; --primarySoft: #EAEDE2; --primarySoftHover: #DEE4D5; --primaryText: #1F4D36; --blue: #3D4F8F; --blueSoft: #ECEBF6; --blueText: #2E3C73; --warm: #B5472A; --warmSoft: #FAE3D7; --warmText: #8C3417; --gold: #9A6A12; --goldSoft: #FAEBD2; --danger: #B3261E; --dangerSoft: #FCE8E6; --focus: #3D4F8F; --disabledBg: #EFE2D7; --disabledInk: #94857A; --tag: rgba(255,253,251,.92); --nav: rgba(255,253,251,.94); --scrim: rgba(36,28,23,.40); --shadow: 0 1px 2px rgba(36,28,23,.05), 0 4px 16px rgba(36,28,23,.06); --shadowHi: 0 8px 32px rgba(36,28,23,.12); --treeFilter: sepia(.12) saturate(1.06); --photoRing: #FFFDFB", "night": "--bg: #0D1322; --surface: #151D30; --surface2: #1C2640; --surface3: #243052; --line: #232E4A; --line2: #33406A; --ink: #EEF1F8; --ink2: #BCC4D8; --ink3: #9099B3; --primary: #8FD6A8; --primaryHover: #A5E2BA; --primaryPressed: #7BC495; --onPrimary: #0D1322; --primarySoft: #1B3A2E; --primarySoftHover: #224736; --primaryText: #A3E2B9; --blue: #9DB8F5; --blueSoft: #1E2A4A; --blueText: #BFD0F8; --warm: #F2A98F; --warmSoft: #3A2624; --warmText: #F7C2AE; --gold: #E8C074; --goldSoft: #3A3020; --danger: #F28B82; --dangerSoft: #3D1F22; --focus: #9DB8F5; --disabledBg: #1C2640; --disabledInk: #6B7593; --tag: rgba(21,29,48,.86); --nav: rgba(13,19,34,.94); --scrim: rgba(0,0,0,.55); --shadow: 0 0 0 1px #232E4A; --shadowHi: 0 8px 32px rgba(0,0,0,.45); --treeFilter: brightness(.78) saturate(.86); --photoRing: #151D30"};
+    const AS = {"people": {"mum": "../a/ba1b29dccf518e6eee3698f63261ddd2.jpg", "papa": "../a/dca6d6b27edcc6d8e71bad6ebb2304b9.jpg", "kabir": "../a/35dc31cd3e3f8721298db0069d8f9323.jpg", "riya": "../a/ea30d9faa62369043ec214e2a18b86a0.jpg", "aditya": "../a/2e777052d264cd101e2824532063e523.jpg", "newmum": "../a/a24ffdeaf50b6c528a4b365021bbbca1.jpg", "ananya": "../a/7db7358cf6dfe3e834d981e52923d228.jpg"}, "shop": {"carvaan": "../a/786f9c038e30ef47d943b11c735b20e0.jpg", "jasmine": "../a/98f9fa09e1fd067cf53a340671fcd707.jpg", "tools": "../a/a85de63a7106b0df52b4ab1afca3b8ed.jpg", "letter": "../a/e27c08883df95a3f122b1cf469bbde00.jpg", "journal": "../a/783d4424a833e9a6bfb48f0a7a25ef58.jpg", "throw": "../a/186e98b510c001e6adaf61a1d11bd7f3.jpg", "pottery": "../a/81f2bcc08b063181e8b765f6af358f74.jpg", "roses": "../a/dc2a416addf94107cbbbd1ae0fa4b3ae.jpg", "books": "../a/4fa80a7e4cfad63cfb2d547497ec6ff9.jpg", "college": "../a/acb0e629407a81f2b7ccb8f20b56fbb5.jpg", "pocket": "../a/e8ff1eb83f70bfd10c93114779cef049.jpg", "wellness": "../a/f9077b8498304dd5c8cc12cd317d2124.jpg"}, "memories": {"crochet": "../a/959401b6985279aa75d2e249e0f142ad.jpg", "garden": "../a/b463a95a0a9eb44c6777670ddd32026c.jpg", "kitchen": "../a/2fcebe19e56b430a9e0b786eb9a13422.jpg", "cycle": "../a/954b61c56f6d02ff9c654ad710a721da.jpg", "coorg": "../a/1c5d49441ab3c95b42aa01060a871795.jpg"}, "scenes": {"morning": "../a/37cfd61edbd2ecdbc5fd950a40bc094e.svg", "day": "../a/ef8401ed80e090fe3f05c0730eda1ba2.svg", "evening": "../a/7d55bcfb63650de2fe51b0a90e0cbdd5.svg", "night": "../a/436617b1044e2c38f1ea102ce04761a1.svg"}, "connect": {"abroad": "../a/87b424b85823535ec55df1b5cb566c33.svg", "home": "../a/ee2263a80d84813188c476620dd61956.svg", "skyAbroad": "../a/38d0cd4071a36b4f2f687c53b9b84754.svg", "skyHome": "../a/96ab3fba01b8a7d05b7efdde9d0f37c7.svg"}};
+    const P = [['Mum', 'mango', 29, 'mum', false], ['Papa', 'guava', 18, 'papa', false], ['Riya', 'chikoo', 12, 'riya', true], ['Kabir', 'litchi', 7, 'kabir', false], ['Aditya', 'pomegranate', 3, 'aditya', true]];
+    return { rootStyle: THEMES.day + '; width: 1080px; height: 1350px; position: relative; overflow: hidden; display: flex; flex-direction: column; background: var(--bg);',
+      garden: P.map((x) => ({ name: x[0], species: x[1], level: x[2], photo: AS.people[x[3]], flip: x[4] })) };
+  }
+}
+</script>
+</body>
+</html>

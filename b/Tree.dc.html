@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Relationship tree</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap">
+<link rel="stylesheet" href="h-ebaff274.css">
+</helmet>
+<div role="img" aria-label="{{label}}" style="{{rootStyle}}">
+<div style="{{innerStyle}}">
+<div style="{{swayStyle}}">
+<div style="{{growStyle}}">
+<sc-if value="{{still}}" hint-placeholder-val="{{ true }}"><div class="{{trClass}}" style="{{artStyle}}"></div></sc-if>
+<sc-if value="{{growing}}" hint-placeholder-val="{{ false }}"><sc-for list="{{layers}}" as="ly" hint-placeholder-count="0"><div class="{{trClass}}" style="{{ly}}"></div></sc-for></sc-if>
+<sc-for list="{{flowers}}" as="f" hint-placeholder-count="0">
+<div class="it" style="{{f.style}}"></div>
+</sc-for>
+<sc-for list="{{fruits}}" as="fr" hint-placeholder-count="0">
+<div class="it" style="{{fr.style}}"></div>
+</sc-for>
+<sc-if value="{{hasBird}}" hint-placeholder-val="{{ false }}">
+<div style="{{birdStyle}}">
+<img src="../a/589f31e82f4d932647dbf0cfeda89096.png" alt="" style="{{birdImgStyle}}">
+</div>
+</sc-if>
+</div>
+</div>
+<div style="{{fxStyle}}">
+<sc-for list="{{bees}}" as="bee" hint-placeholder-count="0">
+<img src="../a/7a36eb4aec4ad11c76565e7e64b8490f.png" alt="" style="{{bee.style}}">
+</sc-for>
+<sc-for list="{{flies}}" as="fl" hint-placeholder-count="0">
+<span style="{{fl.style}}"></span>
+</sc-for>
+<sc-if value="{{hasButterfly}}" hint-placeholder-val="{{ false }}">
+<div style="{{butterflyStyle}}">
+<span style="position: absolute; left: 0; top: 0; width: 8px; height: 8px; border-radius: 60% 40% 60% 40%; background: #F2B84B; transform-origin: 100% 50%; animation: ang-wing .35s ease-in-out infinite;"></span>
+<span style="position: absolute; left: 8px; top: 0; width: 8px; height: 8px; border-radius: 40% 60% 40% 60%; background: #EFA43A; transform-origin: 0 50%; animation: ang-wing .35s ease-in-out infinite;"></span>
+<span style="position: absolute; left: 7px; top: 1px; width: 2px; height: 7px; border-radius: 1px; background: #5A3A26;"></span>
+</div>
+</sc-if>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"species":{"editor":"enum","options":["mango","guava","litchi","pomegranate","chikoo","jamun","lemon"],"default":"mango"},"level":{"editor":"range","min":0,"max":30,"step":1,"default":22},"size":{"editor":"int","default":240,"min":40,"max":600},"time":{"editor":"enum","options":["morning","day","evening","night"],"default":"day"},"flip":{"editor":"boolean","default":false},"sway":{"editor":"boolean","default":true},"fruit":{"editor":null},"grow":{"editor":"boolean","default":false},"dur":{"editor":"range","min":1,"max":8,"step":0.5,"default":3.5},"$preview":{"width":240,"height":264}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const SP = ['mango', 'guava', 'litchi', 'pomegranate', 'chikoo', 'jamun', 'lemon'];
+    const BY_COLOR = { '#E9A23B': 'mango', '#C5CC55': 'guava', '#D4524A': 'litchi', '#B8323F': 'pomegranate', '#8E6440': 'chikoo', '#5B2A5E': 'jamun', '#E3C53E': 'lemon' };
+    let sp = this.props.species || BY_COLOR[String(this.props.fruit || '').toUpperCase()] || 'mango';
+    if (SP.indexOf(sp) < 0) sp = 'mango';
+    const si = SP.indexOf(sp);
+    const L = Math.max(0, Math.min(30, Math.round(Number(this.props.level ?? 22))));
+    const size = Number(this.props.size ?? 240);
+    const time = this.props.time || 'day';
+    const sway = this.props.sway !== false;
+    const flip = !!this.props.flip;
+    const stage = L >= 30 ? 5 : Math.floor(L / 5);
+    const t = L >= 30 ? 1 : (L % 5) / 4;
+    const k = size / 200;
+    const px = (n) => Math.round(n * 10) / 10 + 'px';
+    const ANCH = {"mango":[{"fl":[],"fr":[],"bird":null,"bees":[]},{"fl":[],"fr":[],"bird":null,"bees":[]},{"fl":[[77,131],[110,125],[98,124],[130,147],[122,135],[72,147],[87,125]],"fr":[[81,153],[118,161],[121,151],[101,158],[72,147],[87,162],[112,147]],"bird":[106,117],"bees":[[144,135],[55,147]]},{"fl":[[70,109],[112,102],[97,101],[139,131],[139,118],[129,115],[64,131],[61,120]],"fr":[[76,138],[123,149],[128,136],[101,145],[63,134],[93,153],[111,153],[79,150],[68,147],[85,131],[88,143],[114,140],[138,139],[118,131]],"bird":[108,91],"bees":[[157,115],[41,131]]},{"fl":[[63,89],[115,80],[97,78],[148,116],[148,100],[135,96],[56,116],[52,103]],"fr":[[70,124],[128,138],[134,121],[102,133],[54,120],[70,135],[92,142],[114,143],[123,122],[81,116],[145,128],[85,130],[81,141],[146,116],[112,130],[56,130]],"bird":[110,67],"bees":[[170,96],[28,116]]},{"fl":[[58,74],[117,63],[96,62],[154,104],[154,86],[140,81],[50,104],[46,89],[105,69]],"fr":[[66,114],[132,130],[139,110],[102,124],[48,108],[65,126],[126,120],[77,116],[91,134],[116,135],[79,104],[151,118],[76,131],[149,107],[51,120],[126,107]],"bird":[112,49],"bees":[[180,82],[18,104]]}],"guava":[{"fl":[],"fr":[],"bird":null,"bees":[]},{"fl":[],"fr":[],"bird":null,"bees":[]},{"fl":[[72,173],[85,161],[68,160],[113,164],[126,158],[128,170],[101,145],[79,149],[101,156]],"fr":[[69,167],[83,166],[76,176],[118,171],[136,164],[110,164],[104,151],[84,145],[88,155]],"bird":[99,135],"bees":[[138,150],[60,172]]},{"fl":[[64,165],[81,148],[58,148],[117,153],[134,145],[124,162],[101,128],[73,134],[82,139],[107,128],[125,121],[118,136]],"fr":[[60,157],[77,155],[66,167],[124,162],[148,153],[136,160],[105,136],[79,128],[88,136],[114,133],[108,124],[128,130]],"bird":[97,114],"bees":[[150,135],[48,160]]},{"fl":[[55,157],[48,147],[76,137],[121,142],[142,133],[129,154],[101,112],[67,119],[79,125],[109,111],[130,103],[133,115],[45,124],[70,124],[52,113]],"fr":[[51,148],[72,145],[58,159],[129,153],[158,143],[148,145],[106,121],[74,112],[75,125],[117,119],[109,108],[128,114],[61,126],[51,132],[49,120]],"bird":[95,95],"bees":[[162,121],[37,148]]},{"fl":[[49,151],[41,140],[73,128],[124,134],[148,124],[133,147],[101,100],[62,108],[76,115],[110,99],[135,90],[138,103],[37,114],[66,113],[46,101]],"fr":[[44,140],[69,138],[52,154],[133,147],[166,135],[154,137],[107,111],[71,101],[72,115],[119,108],[110,95],[131,102],[56,116],[44,123],[35,117]],"bird":[94,81],"bees":[[170,110],[28,140]]}],"litchi":[{"fl":[],"fr":[],"bird":null,"bees":[]},{"fl":[],"fr":[],"bird":null,"bees":[]},{"fl":[[68,161],[129,143],[113,176],[76,135],[126,167],[90,134],[137,151],[71,150],[119,132],[88,174],[103,130],[102,179]],"fr":[[78,161],[84,164],[74,167],[118,160],[124,163],[114,166],[96,174],[102,177],[92,180],[114,172],[120,175],[110,178],[91,164],[97,167],[87,170],[106,165],[112,168],[102,171]],"bird":[89,120],"bees":[[145,137],[52,158]]},{"fl":[[58,149],[138,125],[56,138],[117,169],[68,115],[134,156],[87,114],[148,136],[142,145],[125,111],[84,166],[104,109]],"fr":[[71,149],[77,152],[67,155],[124,147],[130,150],[120,153],[95,166],[101,169],[91,172],[115,158],[121,161],[111,164],[132,154],[138,157],[128,160],[82,146],[88,149],[78,152]],"bird":[86,96],"bees":[[159,117],[38,144]]},{"fl":[[49,138],[147,108],[46,124],[121,162],[61,96],[142,146],[84,94],[159,121],[151,133],[130,92],[80,159],[105,89]],"fr":[[64,138],[70,141],[60,144],[129,135],[135,138],[125,141],[94,158],[100,161],[90,164],[119,149],[125,152],[115,155],[138,143],[144,146],[134,149],[85,149],[91,152],[81,155]],"bird":[82,73],"bees":[[172,99],[24,130]]},{"fl":[[42,129],[153,96],[38,114],[124,156],[56,81],[147,139],[82,80],[167,110],[48,109],[158,124],[134,77],[78,153]],"fr":[[59,129],[65,132],[55,135],[133,127],[139,130],[129,133],[93,152],[99,155],[89,158],[121,142],[127,145],[117,148],[143,135],[149,138],[139,141],[82,142],[88,146],[78,148]],"bird":[80,55],"bees":[[182,85],[14,120]]}],"pomegranate":[{"fl":[],"fr":[],"bird":null,"bees":[]},{"fl":[],"fr":[],"bird":null,"bees":[]},{"fl":[[65,137],[90,134],[89,145],[79,149],[133,143],[110,144],[112,128],[133,132],[84,122],[94,137],[98,109],[112,131]],"fr":[[70,137],[78,145],[87,136],[117,146],[128,140],[115,135],[91,128],[114,120],[99,134],[111,131]],"bird":[106,108],"bees":[[142,122],[57,141]]},{"fl":[[56,120],[88,116],[86,130],[74,135],[142,128],[113,130],[115,109],[142,114],[79,102],[93,120],[97,85],[116,113]],"fr":[[62,120],[72,130],[84,119],[60,131],[122,131],[136,124],[119,120],[143,117],[89,108],[117,99],[99,117],[106,108]],"bird":[106,84],"bees":[[153,101],[45,126]]},{"fl":[[48,105],[85,101],[84,117],[69,123],[150,114],[115,117],[118,93],[149,98],[75,84],[91,106],[97,64],[119,97]],"fr":[[55,105],[66,117],[81,104],[78,115],[126,119],[142,110],[122,105],[148,101],[87,91],[92,101],[121,80],[108,98]],"bird":[106,63],"bees":[[163,83],[35,112]]},{"fl":[[42,94],[84,90],[82,108],[65,114],[155,105],[117,107],[120,81],[155,87],[73,71],[90,95],[96,49],[121,85]],"fr":[[50,95],[63,108],[79,94],[76,106],[129,110],[147,100],[124,95],[155,92],[85,79],[92,90],[123,67],[110,86]],"bird":[106,47],"bees":[[170,70],[28,102]]}],"chikoo":[{"fl":[],"fr":[],"bird":null,"bees":[]},{"fl":[],"fr":[],"bird":null,"bees":[]},{"fl":[[117,150],[112,176],[69,165],[130,172],[91,130],[129,140],[109,159],[71,148],[122,125],[116,138],[107,114],[79,119]],"fr":[[115,169],[71,160],[97,170],[79,168],[126,165],[79,143],[104,157],[123,148],[86,153],[112,143],[120,131],[104,133],[82,127],[92,135],[109,124]],"bird":[100,104],"bees":[[145,139],[54,161]]},{"fl":[[121,137],[115,168],[62,156],[138,163],[89,112],[136,124],[111,147],[64,133],[127,105],[120,120],[109,92],[75,97]],"fr":[[118,161],[64,150],[96,161],[74,159],[132,155],[74,128],[104,144],[128,133],[84,134],[118,127],[125,111],[104,114],[78,107],[112,105],[90,116]],"bird":[100,78],"bees":[[155,122],[43,150]]},{"fl":[[124,125],[118,162],[56,147],[144,156],[88,96],[141,110],[113,136],[59,120],[132,87],[123,105],[110,72],[71,78]],"fr":[[122,153],[58,140],[95,154],[70,151],[137,146],[70,114],[105,133],[133,120],[82,121],[114,126],[129,94],[105,98],[75,89],[119,89],[88,100]],"bird":[100,55],"bees":[[164,108],[34,141]]},{"fl":[[127,116],[120,156],[50,140],[149,150],[86,82],[146,97],[115,127],[54,109],[135,71],[125,91],[111,55],[68,61]],"fr":[[124,146],[53,132],[95,147],[66,144],[142,139],[66,102],[106,123],[136,109],[55,101],[80,110],[132,80],[106,84],[72,74],[122,73],[115,90]],"bird":[100,36],"bees":[[172,95],[26,132]]}],"jamun":[{"fl":[],"fr":[],"bird":null,"bees":[]},{"fl":[],"fr":[],"bird":null,"bees":[]},{"fl":[[70,142],[65,126],[59,135],[105,118],[122,120],[88,154],[128,148],[132,132],[75,122],[90,115],[108,152],[75,153]],"fr":[[127,143],[132,145],[128,149],[103,148],[108,150],[104,154],[89,154],[94,156],[90,160],[83,143],[88,145],[84,149],[114,137],[119,139],[115,143],[114,153],[118,155],[114,159]],"bird":[95,109],"bees":[[149,123],[49,140]]},{"fl":[[62,125],[55,105],[47,117],[66,105],[107,94],[129,97],[85,141],[137,133],[143,123],[95,90],[142,112],[118,95]],"fr":[[135,127],[140,129],[136,133],[103,133],[108,135],[104,139],[86,141],[91,143],[87,147],[78,127],[83,129],[79,133],[122,126],[128,128],[124,132],[97,141],[102,143],[98,147]],"bird":[94,83],"bees":[[163,101],[35,123]]},{"fl":[[53,108],[45,84],[36,98],[58,84],[108,71],[135,74],[81,128],[145,118],[153,106],[93,66],[54,120],[151,93]],"fr":[[142,111],[147,113],[143,117],[104,118],[109,120],[105,124],[82,128],[87,130],[83,134],[74,111],[78,113],[74,117],[128,110],[133,112],[129,116],[89,119],[94,121],[90,125]],"bird":[92,58],"bees":[[177,79],[21,105]]},{"fl":[[47,96],[37,68],[27,84],[53,68],[109,53],[98,54],[140,57],[79,118],[35,92],[151,107],[160,93],[48,109]],"fr":[[148,98],[153,100],[149,104],[105,107],[110,109],[106,113],[145,109],[150,111],[146,115],[80,118],[85,120],[81,124],[86,109],[92,111],[88,115],[70,99],[75,101],[71,105]],"bird":[91,38],"bees":[[188,62],[10,92]]}],"lemon":[{"fl":[],"fr":[],"bird":null,"bees":[]},{"fl":[],"fr":[],"bird":null,"bees":[]},{"fl":[[127,147],[117,179],[74,149],[78,173],[117,144],[73,162],[133,170],[87,141],[87,186],[97,182],[103,137],[131,158]],"fr":[[90,174],[83,160],[117,173],[114,161],[103,149],[101,172],[78,173],[92,147],[117,150],[108,179],[126,164],[97,182]],"bird":[108,133],"bees":[[143,147],[56,158]]},{"fl":[[135,133],[122,173],[67,135],[72,166],[121,129],[77,176],[65,151],[143,161],[79,130],[97,178],[135,146],[104,120]],"fr":[[88,166],[78,148],[122,165],[118,151],[104,135],[94,130],[101,164],[129,150],[72,166],[112,161],[114,139],[82,137],[96,143],[104,174]],"bird":[110,114],"bees":[[154,132],[44,147]]},{"fl":[[142,120],[126,168],[61,123],[67,159],[125,115],[72,118],[72,171],[59,142],[151,154],[80,110],[80,178],[134,159]],"fr":[[85,160],[74,138],[126,159],[121,141],[104,123],[94,117],[101,157],[61,138],[134,140],[67,160],[116,119],[114,154],[81,146],[79,125]],"bird":[112,98],"bees":[[165,119],[33,138]]},{"fl":[[147,109],[129,164],[55,113],[62,154],[129,104],[68,107],[69,167],[53,134],[52,158],[158,148],[122,94],[77,98]],"fr":[[83,154],[70,130],[129,153],[124,133],[69,141],[105,113],[93,105],[102,151],[56,129],[139,132],[63,154],[118,108],[116,147],[76,114]],"bird":[114,84],"bees":[[174,108],[24,130]]}]};
+    const A = ANCH[sp][stage];
+    const names = ['Seedling', 'Sapling', 'Budding tree', 'Flowering tree', 'Young fruit tree', 'Fruit tree'];
+    const label = sp.charAt(0).toUpperCase() + sp.slice(1) + ' tree, ' + (L >= 30 ? 'fully grown' : names[stage].toLowerCase()) + ', level ' + L + ' of 30';
+    const itemPos = (idx) => 'background-position: 0 ' + (idx / 20 * 100).toFixed(3) + '%;';
+    const pop = ' animation: ang-pop .7s cubic-bezier(.2,.8,.2,1) both;';
+    const nFl = stage === 2 ? 3 + Math.round(4 * t) : stage === 3 ? 6 + Math.round(6 * t) : stage === 4 ? 3 : 0;
+    const flSize = stage === 3 ? 12 : 10;
+    const flowers = (A.fl || []).slice(0, nFl).map((p, i) => ({ style: 'left: ' + px(p[0] - flSize / 2) + '; top: ' + px(p[1] - flSize / 2) + '; width: ' + flSize + 'px; height: ' + flSize + 'px; ' + itemPos(si) + pop + ' animation-delay: ' + (i * 0.04).toFixed(2) + 's;' }));
+    const cluster = sp === 'litchi' || sp === 'jamun';
+    const frSize = stage === 5 ? (cluster ? 10 : 14) : (cluster ? 8 : 11);
+    const nFr = stage === 4 ? Math.round((A.fr.length * (0.35 + 0.35 * t))) : stage === 5 ? Math.round(A.fr.length * (0.6 + 0.4 * t)) : 0;
+    const fruits = (A.fr || []).slice(0, nFr).map((p, i) => ({ style: 'left: ' + px(p[0] - frSize / 2) + '; top: ' + px(p[1] - frSize / 2) + '; width: ' + frSize + 'px; height: ' + frSize + 'px; ' + itemPos(stage === 5 ? 7 + si : 14 + si) + pop + ' animation-delay: ' + (i * 0.03).toFixed(2) + 's;' }));
+    const hasBird = L >= 17 && !!A.bird && time !== 'night';
+    const bees = L >= 15 && time !== 'night' ? (A.bees || []).map((b, i) => ({ style: 'position: absolute; left: ' + px(b[0] - 8) + '; top: ' + px(b[1] - 8) + '; width: 16px; height: auto; animation: ang-buzz ' + (3.2 + i * 0.8) + 's ease-in-out infinite; animation-delay: ' + (-i * 1.4) + 's;' })) : [];
+    const flyPts = [[40, 150], [160, 136], [70, 96], [140, 80], [100, 170], [52, 60]];
+    const flies = time === 'night' && L >= 5 ? flyPts.slice(0, Math.min(6, 2 + stage)).map((p, i) => ({ style: 'position: absolute; left: ' + p[0] + 'px; top: ' + p[1] + 'px; width: 4px; height: 4px; border-radius: 50%; background: #F9F3A6; box-shadow: 0 0 8px 2px rgba(249,243,166,.7); animation: ang-firefly ' + (4 + i * 0.7).toFixed(1) + 's ease-in-out infinite; animation-delay: ' + (-i * 1.1).toFixed(1) + 's;' })) : [];
+    const hasButterfly = L >= 10 && (time === 'morning' || time === 'day');
+    const grow = stage === 0 ? 0.8 + 0.2 * t : 0.9 + 0.1 * t;
+    const filter = time === 'night' ? 'brightness(.8) saturate(.85)' : time === 'evening' ? 'sepia(.12) saturate(1.06)' : 'none';
+    // grow mode: one continuous growth from seedling to this level. Stage drawings cross-fade into each other while the whole tree scales up, so there are no visible steps.
+    const growing = !!this.props.grow;
+    const D = Number(this.props.dur ?? 3.5);
+    const nSt = stage + 1;
+    const seg = D / nSt;
+    const layers = growing ? Array.from({ length: nSt }, (_, i) => {
+      const inAt = i === 0 ? 0 : i * seg - seg * 0.35;
+      const outAt = (i + 1) * seg - seg * 0.35;
+      const fade = seg * 0.7;
+      const anim = i === 0 ? 'ang-tin .5s ease 0s both' : 'ang-tin ' + fade.toFixed(2) + 's ease-in-out ' + inAt.toFixed(2) + 's both';
+      return 'position: absolute; left: 0; top: 0; background-position: 0 -' + (i * 220) + 'px; animation: ' + anim + (i < nSt - 1 ? ', ang-tout ' + fade.toFixed(2) + 's ease-in-out ' + outAt.toFixed(2) + 's forwards' : '') + ';';
+    }) : [];
+    const late = (st) => growing ? st.replace(/ animation-delay: [0-9.]+s;/, '') + ' animation-delay: ' + (D * 0.92).toFixed(2) + 's;' : st;
+    return {
+      still: !growing, growing, layers, fxStyle: 'position: absolute; left: 0; top: 0; width: 200px; height: 220px; pointer-events: none;' + (growing ? ' animation: ang-tin .8s ease ' + (D * 0.85).toFixed(2) + 's both;' : ''),
+      label, flowers: flowers.map((f) => ({ style: late(f.style) })), fruits: fruits.map((f) => ({ style: late(f.style) })), hasBird, bees, flies, hasButterfly,
+      trClass: 'tr tr-' + sp,
+      artStyle: 'background-position: 0 -' + (stage * 220) + 'px;',
+      birdStyle: hasBird ? 'position: absolute; left: ' + px(A.bird[0] - 12) + '; top: ' + px(A.bird[1] - 22) + '; width: 24px; height: 24px; animation: ang-bird-in 1.6s cubic-bezier(.25,.8,.3,1) ' + (growing ? (D * 0.8).toFixed(2) : '0') + 's both;' + (flip ? ' transform: scaleX(-1);' : '') : '',
+      birdImgStyle: 'display: block; width: 24px; height: auto; transform-origin: 50% 100%; animation: ang-bird-idle ' + (7 + (L % 3)) + 's ease-in-out 1.6s infinite;',
+      butterflyStyle: 'position: absolute; left: ' + (flip ? 40 : 150) + 'px; top: 150px; width: 16px; height: 8px; animation: ang-flutter 6s ease-in-out infinite;',
+      rootStyle: 'position: relative; width: ' + px(200 * k) + '; height: ' + px(220 * k) + '; flex-shrink: 0;',
+      innerStyle: 'position: absolute; left: 0; top: 0; width: 200px; height: 220px; transform: scale(' + k + '); transform-origin: 0 0; filter: ' + filter + '; transition: filter .6s ease;',
+      swayStyle: 'position: absolute; left: 0; top: 0; width: 200px; height: 220px; transform-origin: 100px 202px;' + (sway ? ' animation: ang-sway ' + (4.8 + (L % 4) * 0.5) + 's ease-in-out infinite alternate;' : ''),
+      growStyle: 'position: absolute; left: 0; top: 0; width: 200px; height: 220px; transform-origin: 100px 202px; ' + (growing ? '--gs: ' + grow + '; animation: ang-growscale ' + D + 's cubic-bezier(.3,.6,.3,1) both;' : 'transform: scale(' + (flip ? -grow : grow) + ', ' + grow + '); transition: transform 1.1s cubic-bezier(.2,.8,.2,1);')
+    };
+  }
+}
+</script>
+</body>
+</html>

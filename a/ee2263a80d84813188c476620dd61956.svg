@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 140" width="120" height="140">
+  <ellipse cx="62" cy="133.5" rx="50" ry="3.2" fill="#1d2a1f" opacity=".14"/>
+  <!-- tulsi vrindavan on the right -->
+  <path d="M92 104 h22 l-2 29 h-18 z" fill="#E7D3B3"/>
+  <path d="M92 104 h22 l-.3 4 h-21.4 z" fill="#D8BF98"/>
+  <path d="M97.5 113 h11 v11 h-11 z" fill="#C9A77A"/>
+  <path d="M100 118.5 q3 -4 6 0 q-3 4 -6 0 z" fill="#E7D3B3"/>
+  <rect x="90" y="100" width="26" height="5" rx="1.6" fill="#F0E0C4"/>
+  <path d="M103 100 q-1 -12 -7 -18 M103 100 q.6 -14 6 -21 M103 100 q-.4 -17 .6 -24" stroke="#4E7A3A" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+  <g fill="#5F9345"><ellipse cx="96" cy="82" rx="3.6" ry="2.2" transform="rotate(-30 96 82)"/><ellipse cx="109" cy="79" rx="3.6" ry="2.2" transform="rotate(30 109 79)"/><ellipse cx="103.6" cy="75.6" rx="3.4" ry="2.1"/><ellipse cx="99" cy="89" rx="3.2" ry="2" transform="rotate(-20 99 89)"/><ellipse cx="107.4" cy="88" rx="3.2" ry="2" transform="rotate(20 107.4 88)"/><ellipse cx="103" cy="94" rx="3" ry="1.9"/></g>
+  <g fill="#7FB35E"><ellipse cx="100" cy="80" rx="2.2" ry="1.4"/><ellipse cx="106.6" cy="84" rx="2.2" ry="1.4"/></g>
+  <!-- brass lota -->
+  <circle cx="21" cy="125.4" r="7" fill="#D2A03D"/>
+  <path d="M16.6 120 q4.4 2 8.8 0 l-.8 -3.6 h-7.2 z" fill="#B8872B"/>
+  <rect x="16" y="115.6" width="10" height="2.4" rx="1.2" fill="#D2A03D"/>
+  <path d="M15 132.6 q6 -3 12 0 z" fill="#B8872B"/>
+  <path d="M17 123 q2 -3 5 -3.4" stroke="#F1CF7A" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+  <!-- moodha (cane stool) -->
+  <path d="M46 98 Q64 104 82 98 L78 115 L82 132 Q64 137 46 132 L50 115 Z" fill="#C9A26B"/>
+  <path d="M50 115 Q64 119 78 115" stroke="#A9834F" stroke-width="1.6" fill="none"/>
+  <path d="M48 104 L78 128 M80 104 L50 128 M56 101 L76 131 M72 101 L52 131" stroke="#B38E5A" stroke-width=".9" opacity=".8"/>
+  <path d="M46 132 Q64 137 82 132" stroke="#9E7A47" stroke-width="2" fill="none"/>
+  <ellipse cx="64" cy="98.4" rx="18.4" ry="3.8" fill="#D9B784"/>
+  <!-- feet -->
+  <path d="M36 128.6 q.6 -3.6 6 -3.6 h5 v4.6 h-11 z" fill="#8C5634"/>
+  <path d="M44 129.4 q.6 -3.2 5.6 -3.2 h4.4 v4 h-10 z" fill="#7C4A2C"/>
+  <!-- saree: skirt over the knees, falling to the ankles -->
+  <path d="M77 88 Q60 86 44 90.4 Q39.4 92 40 97 L39 126.6 L55.6 127 L56.6 103 Q66 104 77 101 Z" fill="#9C2F3A"/>
+  <path d="M56.6 103 L55.6 127" stroke="#84252F" stroke-width="1.2"/>
+  <path d="M46 97 L45.4 125" stroke="#84252F" stroke-width="1.1" opacity=".7"/>
+  <path d="M39 124 L55.8 124.4 L55.6 127.4 L39 127 Z" fill="#E0B04A"/>
+  <!-- blouse and torso -->
+  <path d="M61 61.6 Q61.6 55.8 67 55.4 L72.6 55.4 Q78.6 56 78.4 62.4 L79.2 88.6 Q70 91.6 60.6 88.6 Z" fill="#E08A2F"/>
+  <path d="M60.6 76 L79 76 L79.2 88.6 Q70 91.6 60.6 88.6 Z" fill="#9C2F3A"/>
+  <!-- pallu: across the chest, over the left shoulder, down the back -->
+  <path d="M60.8 74 Q68 70 76.6 56 L80.6 58.6 Q82.6 76 81.4 92 L76 92 Q76.8 78 75.8 66 Q70 76 61 80 Z" fill="#A5343F"/>
+  <path d="M76.6 56 L80.6 58.6 Q82.6 76 81.4 92" stroke="#E0B04A" stroke-width="1.6" fill="none"/>
+  <path d="M61 80 Q70 76 75.8 66" stroke="#E0B04A" stroke-width="1.3" fill="none"/>
+  <!-- far arm resting on her knee -->
+  <path d="M63.6 64 Q60 76 56 84 L47 90" stroke="#E08A2F" stroke-width="5.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M59 80 Q57 83.4 55 85.2 L47 90" stroke="#A8704C" stroke-width="4.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="46" cy="90.4" r="2.8" fill="#A8704C"/>
+  <path d="M55.4 83.4 l2.4 2.6" stroke="#E0B04A" stroke-width="1.4" stroke-linecap="round"/>
+  <!-- neck -->
+  <path d="M63.4 48.6 h6 v8.4 h-6 z" fill="#93603F"/>
+  <!-- head (three-quarter view, facing left) -->
+  <path d="M73.4 43.6 Q73.4 36.6 67.4 36.4 Q61.2 36.4 61 42.2 L59.4 45.6 Q59 46.6 60.2 46.8 L60.6 49 Q61 52.4 65.4 52.6 Q70.8 52.6 72.4 48.8 Z" fill="#A8704C"/>
+  <!-- hair: grey-streaked, parted, bun at the back -->
+  <path d="M73.6 43.6 Q73.4 38.6 69 37.2 Q66 38.8 61.4 38.6 Q62.4 34.8 68 34.6 Q74.6 35 74.2 43 Z" fill="#3E3935"/>
+  <path d="M63 37.4 Q66 35.6 70 36.2" stroke="#BDB5AC" stroke-width="1" fill="none"/>
+  <circle cx="76.6" cy="44.6" r="4.3" fill="#3E3935"/>
+  <path d="M74.6 42.2 q2.6 -1.2 4.4 1" stroke="#BDB5AC" stroke-width=".8" fill="none"/>
+  <circle cx="70.4" cy="45.4" r="1.9" fill="#93603F"/>
+  <circle cx="64.4" cy="40.4" r=".9" fill="#B3262E"/>
+  <path d="M62.6 43.8 q1.2 -1 2.4 0" stroke="#3B2418" stroke-width=".9" fill="none" stroke-linecap="round"/>
+  <path d="M61.6 49.2 q1.4 .9 2.8 0" stroke="#7A3A2A" stroke-width=".8" fill="none" stroke-linecap="round"/>
+  <!-- near arm up, phone to ear -->
+  <path d="M76 62 Q82.6 65 80.4 57" stroke="#E08A2F" stroke-width="5.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M80.4 57.6 Q79 53 75.4 50.2 L72.6 48.6" stroke="#A8704C" stroke-width="4.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M79.2 55 l2.4 -1.6" stroke="#E0B04A" stroke-width="1.4" stroke-linecap="round"/>
+  <rect x="69.4" y="41.2" width="4.2" height="9.2" rx="1.4" fill="#1E232B" transform="rotate(18 71.5 45.8)"/>
+  <circle cx="72.4" cy="48.8" r="2.6" fill="#A8704C"/>
+</svg>
